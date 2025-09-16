@@ -17,8 +17,22 @@ namespace ProductPrice {
             }
         }
 
+        public static void BuyProduct() {
+
+        }
+
         static void Main(string[] args) {
             Menu.Run();
+        }
+    }
+
+    class ProductItem {
+        public string Name { get; }
+        public double Price { get; }
+
+        public ProductItem( string name, double price ) {
+            Name = name;
+            Price = price;
         }
     }
 }
