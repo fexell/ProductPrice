@@ -8,6 +8,7 @@ namespace ProductPrice {
     internal class Menu {
         public static Dictionary<int, MenuItem> MenuItems = new() {
             { 1, new MenuItem( "Show products", Program.ShowProducts ) },
+            { 2, new MenuItem( "Buy product", Program.BuyProduct ) },
         };
 
         public static void ShowMenu() {
@@ -18,6 +19,8 @@ namespace ProductPrice {
 
         public static void Run() {
             while ( true ) {
+                Console.Clear();
+
                 ShowMenu();
 
                 Console.Write( "> " );

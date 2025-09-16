@@ -11,18 +11,21 @@ namespace ProductPrice {
                 if( int.TryParse( value, out int result ) ) {
                     return result;
                 } else {
-                    Console.WriteLine( "Invalid input. Please try again." );
+                    Console.Write( "Invalid input. Please try again: " );
                     value = Console.ReadLine();
                 }
             }
         }
 
-        public static double DoubleValidator( string value ) {
+        public static double DoubleValidator( string? value = null ) {
+            if ( value == null || value == "" )
+                return 0;
+
             while( true ) {
                 if( double.TryParse( value, out double result ) ) {
                     return result;
                 } else {
-                    Console.WriteLine( "Invalid input. Please try again." );
+                    Console.Write( "Invalid input. Please try again: " );
                     value = Console.ReadLine();
                 }
             }
