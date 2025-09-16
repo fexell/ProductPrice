@@ -1,0 +1,60 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProductPrice {
+    internal class Menu {
+        public static Dictionary<int, MenuItem> MenuItems = new() {
+            { 1, new MenuItem( "Show products", Program.ShowProducts ) },
+        };
+
+        public static void ShowMenu() {
+            foreach ( (int index, MenuItem item) in MenuItems ) {
+                Console.WriteLine( $"{index}. {item.Name}" );
+            }
+        }
+
+        public static void Run() {
+            while ( true ) {
+                ShowMenu();
+
+                Console.Write( "> " );
+                int input = Helpers.IntValidator( Console.ReadLine() );
+                Console.WriteLine();
+
+                if ( MenuItems.ContainsKey( input ) ) {
+                    MenuItems[ input ].Action.Invoke();
+                } else {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine( $"Option entered ({input}) does not exist. Press any key to try again..." );
+                    Console.ResetColor();
+                    Console.ReadKey();
+                }
+
+                Console.WriteLine();
+            }
+        }
+
+        internal class MenuItem {
+            public string Name { get; }
+            public Action Action { get; }
+            public MenuItem( string name, Action action, bool autoReturn = true ) {
+                Name = name;
+
+
+                if ( autoReturn ) {
+                    Action = () => {
+                        action();
+
+                        Console.WriteLine( "\nPress any key to return..." );
+                        Console.ReadKey();
+                    };
+                } else {
+                    Action = action;
+                }
+            }
+        }
+    }
+}
