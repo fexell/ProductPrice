@@ -35,11 +35,11 @@ namespace ProductPrice {
             Console.ForegroundColor = ConsoleColor.Green;
             if( tax != 0 ) {
                 Console.WriteLine(
-                    $"You bought {quantity} {products[ productId ].Name}(s) for {CalculateTotal( products[ productId ].Name, products[ productId ].Price, quantity, tax )} {CURRENCY}"
+                    $"\nYou bought {quantity} {(quantity > 1 ? products[ productId ].Name + "s" : products[ productId ].Name)} for {CalculateTotal( products[ productId ].Name, products[ productId ].Price, quantity, tax )} {CURRENCY}"
                 );
             } else {
                 Console.WriteLine(
-                    $"You bought {quantity} {products[ productId ].Name}(s) for {CalculateTotal( products[ productId ].Name, products[ productId ].Price, quantity )} {CURRENCY}"
+                    $"\nYou bought {quantity} {( quantity > 1 ? products[ productId ].Name + "s" : products[ productId ].Name )} for {CalculateTotal( products[ productId ].Name, products[ productId ].Price, quantity )} {CURRENCY}"
                 );
             }
             Console.ResetColor();
