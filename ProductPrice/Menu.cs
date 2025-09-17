@@ -19,8 +19,6 @@ namespace ProductPrice {
 
         public static void Run() {
             while ( true ) {
-                Console.Clear();
-
                 ShowMenu();
 
                 Console.Write( "> " );
@@ -43,20 +41,9 @@ namespace ProductPrice {
         internal class MenuItem {
             public string Name { get; }
             public Action Action { get; }
-            public MenuItem( string name, Action action, bool autoReturn = true ) {
+            public MenuItem( string name, Action action ) {
                 Name = name;
-
-
-                if ( autoReturn ) {
-                    Action = () => {
-                        action();
-
-                        Console.WriteLine( "\nPress any key to return..." );
-                        Console.ReadKey();
-                    };
-                } else {
-                    Action = action;
-                }
+                Action = action;
             }
         }
     }

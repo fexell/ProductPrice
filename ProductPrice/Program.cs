@@ -22,22 +22,27 @@ namespace ProductPrice {
             Console.WriteLine( "---------------BUY PRODUCT---------------" );
             ShowProducts();
             Console.WriteLine( "-----------------------------------------" );
+
             Console.Write( "Select product: " );
             int productId = Helpers.IntValidator( Console.ReadLine() );
+
             Console.Write( "Quantity: " );
             int quantity = Helpers.IntValidator( Console.ReadLine() );
+
             Console.Write( "Tax: " );
             double tax = Helpers.DoubleValidator( Console.ReadLine() );
             
+            Console.ForegroundColor = ConsoleColor.Green;
             if( tax != 0 ) {
                 Console.WriteLine(
-                    $"You bought {quantity} {products[ productId ].Name} for {CalculateTotal( products[ productId ].Name, products[ productId ].Price, quantity, tax )} {CURRENCY}"
+                    $"You bought {quantity} {products[ productId ].Name}(s) for {CalculateTotal( products[ productId ].Name, products[ productId ].Price, quantity, tax )} {CURRENCY}"
                 );
             } else {
                 Console.WriteLine(
-                    $"You bought {quantity} {products[ productId ].Name} for {CalculateTotal( products[ productId ].Name, products[ productId ].Price, quantity )} {CURRENCY}"
+                    $"You bought {quantity} {products[ productId ].Name}(s) for {CalculateTotal( products[ productId ].Name, products[ productId ].Price, quantity )} {CURRENCY}"
                 );
             }
+            Console.ResetColor();
         }
 
         static void Main(string[] args) {
