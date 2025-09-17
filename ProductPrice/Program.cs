@@ -29,7 +29,7 @@ namespace ProductPrice {
             Console.Write( "Quantity: " );
             int quantity = Helpers.IntValidator( Console.ReadLine() );
 
-            Console.Write( "Tax: " );
+            Console.Write( "Tax (0.25 - 0.99): " );
             double tax = Helpers.DoubleValidator( Console.ReadLine() );
             
             Console.ForegroundColor = ConsoleColor.Green;

@@ -21,13 +21,13 @@ namespace ProductPrice {
             if ( value == null || value == "" )
                 return 0;
 
-            value = value.Replace( '.', ',' );
-
             while( true ) {
-                if( double.TryParse( value, out double result ) ) {
+                value = value.Replace( '.', ',' );
+
+                if ( double.TryParse( value, out double result ) && (result > 0.25 && result < 0.99 )) {
                     return result;
                 } else {
-                    Console.Write( "Invalid input. Please try again: " );
+                    Console.Write( "Invalid input. Please try again (0.25 - 0.99): " );
                     value = Console.ReadLine();
                 }
             }
