@@ -21,6 +21,8 @@ namespace ProductPrice {
             if ( value == null || value == "" )
                 return 0;
 
+            value = value.Replace( '.', ',' );
+
             while( true ) {
                 if( double.TryParse( value, out double result ) ) {
                     return result;

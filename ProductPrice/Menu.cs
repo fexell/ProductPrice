@@ -9,6 +9,7 @@ namespace ProductPrice {
         public static Dictionary<int, MenuItem> MenuItems = new() {
             { 1, new MenuItem( "Show products", Program.ShowProducts ) },
             { 2, new MenuItem( "Buy product", Program.BuyProduct ) },
+            { 0, new MenuItem( "Exit", () => Environment.Exit( 0 ) ) }
         };
 
         public static void ShowMenu() {
